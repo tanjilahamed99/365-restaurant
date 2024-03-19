@@ -1,4 +1,4 @@
-* utilites
+* utility
 - react
 - node js
 - express

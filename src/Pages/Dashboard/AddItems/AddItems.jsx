@@ -17,32 +17,35 @@ const AddItems = () => {
 
         const imageFile = { image: data.image[0] }
 
+        console.log(imageFile)
+
         const res = await axiosPublic.post(url, imageFile, {
             headers: {
                 "content-type": "multipart/form-data"
             }
         })
-        if (res.data.success) {
-            const menuItems = {
-                name: data.name,
-                recipe: data.recipe,
-                price: parseFloat(data.price),
-                image: res.data.data.display_url,
-                category: data.category
-            }
-            axiosSecure.post('/menu', menuItems)
-                .then(res => {
-                    if(res.data.acknowledged){
-                        reset()
-                        Swal.fire({
-                            icon: "success",
-                            title: `${data.name} has been added`,
-                            showConfirmButton: false,
-                            timer: 1500
-                        });
-                    }
-                })
-        }
+        console.log(res.data)
+        // if (res.data.success) {
+        //     const menuItems = {
+        //         name: data.name,
+        //         recipe: data.recipe,
+        //         price: parseFloat(data.price),
+        //         image: res.data.data.display_url,
+        //         category: data.category
+        //     }
+        //     axiosSecure.post('/menu', menuItems)
+        //         .then(res => {
+        //             if(res.data.acknowledged){
+        //                 reset()
+        //                 Swal.fire({
+        //                     icon: "success",
+        //                     title: `${data.name} has been added`,
+        //                     showConfirmButton: false,
+        //                     timer: 1500
+        //                 });
+        //             }
+        //         })
+        // }
 
     }
 

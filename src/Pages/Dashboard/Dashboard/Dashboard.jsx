@@ -1,11 +1,11 @@
 import { FaBars, FaBook, FaCalendar, FaCoffee, FaHome, FaPeopleArrows, FaPhone, FaShopify, FaShoppingCart, FaWallet } from "react-icons/fa";
 import { NavLink, Outlet } from "react-router-dom";
-import UseAdmin from "../../../Hooks/useAdmin/UseAdmin";
+// import UseAdmin from "../../../Hooks/useAdmin/UseAdmin";
 
 
 const Dashboard = () => {
 
-    const [isAdmin] = UseAdmin()
+    const isAdmin = true 
 
     return (
         <div className="flex  gap-10 justify-center mx-auto container">
@@ -87,7 +87,7 @@ const Dashboard = () => {
                         </li>
                             <li>
                                 <NavLink
-                                    to="/dashboard/reservation"
+                                    to="/dashboard/payment"
                                     className={({ isActive, isPending }) =>
                                         isPending ? "pending" : isActive ? "text-white" : ""
                                     }
